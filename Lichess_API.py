@@ -54,7 +54,7 @@ def get_my_games(token, username, max_games=10):
 
 # Replace 'YOUR_USERNAME' with your actual Lichess username
 username = "TrickyPot1"
-token = "lip_ioAm09bwwv9HqMpkxwCe"
+token = "insert_api_token_here"  # Replace with your Lichess API token
 games_data = get_my_games(token, username)
 
 if games_data:
