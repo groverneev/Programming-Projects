@@ -1,0 +1,10 @@
+What is 2 • 2?
+What is 4 • 2?
+What is 8 • 2?
+What is 16 • 2?
+What is 32 • 2?
+What is 64 • 2?
+What is 128 • 2?
+What is 256 • 2?
+What is 512 • 2?
+What is 1024 • 2?

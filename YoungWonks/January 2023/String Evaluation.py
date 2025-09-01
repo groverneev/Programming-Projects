@@ -1,0 +1,6 @@
+a = input("Enter a string.")
+print(a.endswith("ing"))
+print(a.isalpha())
+print(a.isnumeric())
+print(a.isupper())
+print(a.islower())

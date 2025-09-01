@@ -1,0 +1,7 @@
+a = input("Enter a string.")
+print(a.capitalize())
+print(a.title())
+print(a.lower())
+print(a.upper ())
+print(a.replace("a","b"))
+print(a.find("z"))
