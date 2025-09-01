@@ -3,7 +3,7 @@ import geocoder
 import requests
 import pprint
 from urllib.parse import quote
-api_key = "vbDZqTgUM5qe6seqYXsWl1MmFNbjGCHBk5tMFRgpdU7tMLUwAa3YLC3I_ymCqCmLMf2Ip9YRjRIGrW9EHGhpFCmkugVkK2jzZc8ZZnvAiRuSRaFJkgrMmQwryNfGZHYx"
+api_key = "insert_api_key_here" #Replace with your Yelp API key
 API_KEY= None
 API_HOST = 'https://api.yelp.com'
 SEARCH_PATH = '/v3/businesses/search'
