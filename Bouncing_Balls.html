@@ -1,0 +1,102 @@
+<html>
+    <head>
+      <title>Bouncing Ball</title>
+      <style>
+        body{
+            background-color: beige;
+            margin: 5%; 
+        }
+        #canvas{
+            border: 10px solid black; 
+            background-color: white; 
+        }
+      </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <script>
+             var canvas = document.getElementById("canvas");
+             var pb = canvas.getContext("2d");
+             var WIDTH = canvas.width;
+             var HEIGHT = canvas.height;
+             var BG_COLOR = "white";
+
+
+
+             function dot(cx, cy, radius, clr) {
+              pb.beginPath();
+              pb.fillStyle = clr;
+              pb.arc(cx, cy, radius, 0, 2*Math.PI);
+              pb.fill();
+              pb.closePath();
+             }
+
+
+             function randNumber(start, end) {
+              var span = end-start+1;
+              return Math.floor(Math.random()*span)+start;
+             }
+             function fillScreen(clr) {
+                pb.fillStyle = clr;
+                pb.fillRect(0, 0, WIDTH, HEIGHT);
+             }
+
+             function clrScreen() {
+                fillScreen(BG_COLOR);
+             }
+
+             //dot(100, 100, randNumber(30,50), 'yellow');
+             //dot(300, 400, randNumber(30,50), 'red');
+             //fillScreen('green');
+             //clrScreen();
+
+             function moveBall(bb){
+                let dx = bb.dx;
+                let dy = bb.dy;
+                if (bb.bx + dx >= WIDTH - bb.bsize) bb.dx *= -1;
+                else if (bb.by + dy >= HEIGHT - bb.bsize) bb.dy *= -1;
+                else if (bb.bx + dx < bb.bsize) bb.dx *= -1;
+                else if (bb.by + dy < bb.bsize) bb.dy *= -1;
+                bb.bx += dx;
+                bb.by += dy;
+             }
+
+             function createBall(bx, by, dx, dy, bsize, clr) {
+               var obj = Object();
+               obj.bx = bx;
+               obj.by = by;
+               obj.dx = dx;
+               obj.dy = dy;
+               obj.bsize = bsize;
+               obj.clr = clr;
+               return obj;
+             }
+             //var ball1 = createBall(30, 30, 5, 5, 30, 'darkgreen');
+             //var ball2 = createBall(770, 30, -5, 5, 30, 'darkred');
+             var balls = Array(5); //edit to change amount of balls
+             var dxs = [5, 5, -5, -5, 7, 2, -7, 2];
+             var dys = [5, -5, 5, -5, -2, 7, 2, -7];
+             var rr=0, gg=0, bb=0, clrx="";
+             var clrx = `rgb(${rr}, ${gg}, ${bb})`;
+             for (let i = 0; i < balls.length; i++) {
+               rr = randNumber(0, 255);
+               gg = randNumber(0, 255);
+               bb = randNumber(0, 255);
+               clrx = `rgb(${rr}, ${gg}, ${bb})`;
+               balls[i] = createBall(randNumber(30, 770), randNumber(30, 570), dxs[randNumber(0, 7)], dxs[randNumber(0, 3)], 30, clrx);
+             }
+             function repaint() {
+                clrScreen();
+                for (let i=0; i<balls.length; i++) {
+                  moveBall(balls[i]);
+                dot(balls[i].bx, balls[i].by, balls[i].bsize, balls[i].clr);
+                }
+                moveBall(ball1);
+                dot(ball1.bx, ball1.by, ball1.bsize, ball1.clr);
+                moveBall(ball2);
+                dot(ball2.bx, ball2.by, ball2.bsize, ball2.clr);
+             }
+
+             var bouncingBall = setInterval(repaint, 10);
+        </script>
+    </body>
