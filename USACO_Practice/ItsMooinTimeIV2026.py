@@ -1,3 +1,5 @@
+# https://usaco.org/index.php?page=viewproblem2&cpid=1563
+
 t, k = map(int, input().split())
 for i in range(t):  # ::1
     n = int(input())

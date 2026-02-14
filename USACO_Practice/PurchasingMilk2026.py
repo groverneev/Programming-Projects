@@ -1,3 +1,5 @@
+# https://usaco.org/index.php?page=viewproblem2&cpid=1565
+
 n, q = map(int, input().split()) # n = #deals, q = #queries
 deals = list(map(int, input().split()))
 
