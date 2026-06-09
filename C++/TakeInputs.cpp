@@ -1,6 +1,10 @@
 #include <iostream>  // for std::cout and std::cin
 using namespace std;
 
+int getNumber(int x) {
+    return x;
+}
+
 int main()
 {
     std::cout << "Enter a number: "; // ask user for a number
@@ -8,7 +12,11 @@ int main()
     int x{};       // define variable x to hold user input (and value-initialize it)
     std::cin >> x; // get number from keyboard and store it in variable x
 
-    std::cout << "You entered " << x << '\n';
+    std::cout << "You entered " << x << '\n' << "The number is " << getNumber(7) << '\n';
+
+    int z = getNumber(7);
+
+    cout << z;
 
     cout << "Enter two numbers:";
     int a{}; // define variable a to hold user input (and value-initialize it)
