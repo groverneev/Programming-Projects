@@ -24,7 +24,11 @@ int main() {
             if (sum%x == 0) {
                 sum /= x;
                 bool thing = false;
-                for (int z = i; z <= j; z++) { thing = true; cout << i << " " << j << "\n"; }
+                for (int z = i; z <= j; z++) {
+                    if (v[z] == sum) { // forgot this basic condition - claude found i had forgotten it
+                        thing = true;
+                    }
+                }
                 if (thing) { counter++; }
             }
         }
