@@ -9,14 +9,9 @@ int main() {
 
     int n;
     fin >> n;
-
-    for (int i = 0; i < n; i++) {
-        int a, b, g;
-        fin >> a >> b >> g;
-    }
-
-    int answer = 0;
-    fout << answer;
+    int a, b, c;
+    fin >> a >> b >> c;
+    fout << a + b;
 
     return 0;
 }
