@@ -3,6 +3,7 @@ using namespace std;
 
 int main() {
     ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     
     int n;
     cin >> n;
@@ -18,24 +19,27 @@ int main() {
         v[i] = p;
     }
 
-    sort(v.begin(), v.end(), [](const pair<bool,int>& a, const pair<bool,int>& b) { return a.second < b.second; });
+    int min_lie{std::numeric_limits<int>::max()};
 
-    int max_lie{};
-
-    for (pair<bool, int> out : v) {
-        int i = out.second;
+    for (pair<bool, int> _ : v) {
         int num_lie{};
-        for (pair<bool, int> in : v) {
-            if ((!in.first && in.second > i) || (in.first && in.second < i)) {
+
+        int assumedLocation = _.second;
+
+        for (pair<bool, int> cowsGuesses : v) {
+            // Idea: the first loop is giving actual location and we are checking if each cow is consistent with actual loc or not
+            // From Claude
+            if (!cowsGuesses.first && cowsGuesses.second < assumedLocation) {
+                num_lie++;
+            }
+            else if (cowsGuesses.first && cowsGuesses.second > assumedLocation) {
                 num_lie++;
             }
         }
-        if (num_lie > max_lie) { max_lie = num_lie; }
+        if (num_lie < min_lie) { min_lie = num_lie; }
     }
     
-    cout << max_lie;
+    cout << min_lie;
 
     return 0;
 }
-
-// https://usaco.org/index.php?page=viewproblem2&cpid=1228
