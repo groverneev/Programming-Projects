@@ -16,15 +16,11 @@ int main() {
     for (const char& c : v) {
         set<char> stuffToCount;
         int i = s.find(c) + 1;
-        for (i; i < (int) s.size(); i++) {
-            if (c == s[i]) {
-                i = std::numeric_limits<int>::max() - 6;
-            }
-            else {
-                char ins = s[i];
-                if (stuffToCount.erase(ins) == 0) {
-                    stuffToCount.insert(ins);
-                }
+        int f = s.rfind(c); // Searches the string in reverse
+        for (i; i < f; i++) {
+            char ins = s[i];
+            if (stuffToCount.erase(ins) == 0) {
+                stuffToCount.insert(ins);
             }
         }
         counter += (int) stuffToCount.size();
