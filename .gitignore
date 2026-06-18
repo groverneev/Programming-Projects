@@ -12,3 +12,4 @@
 *.dSYM
 *.exe
 .vscode/
+*.out

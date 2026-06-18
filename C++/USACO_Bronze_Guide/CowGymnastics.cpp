@@ -38,7 +38,7 @@ int main() {
         }
     }
 
-    fout << consistent_counter / 2;
+    fout << consistent_counter / 2; // being double counted so need to divide by 2
 
     return 0;
 }
