@@ -33,7 +33,7 @@ int main() {
                         }
                     }
                     if (increase == false) {
-                        a = std::numeric_limits<int>::max() - 5;
+                        a = numeric_limits<int>::max() - 10;
                     }
                 }
                 if (increase) {

@@ -10,7 +10,7 @@ int main() {
     string s, t;
     fin >> s >> t;
     int index{};
-    while (s.find(t, index) != std::string::npos)
+    while (s.find(t, index) != string::npos)
     {
         index = s.find(t, index);
         

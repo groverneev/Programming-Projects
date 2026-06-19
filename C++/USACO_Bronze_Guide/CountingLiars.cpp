@@ -19,7 +19,7 @@ int main() {
         v[i] = p;
     }
 
-    int min_lie{std::numeric_limits<int>::max()};
+    int min_lie{numeric_limits<int>::max()};
 
     for (pair<bool, int> _ : v) {
         int num_lie{};
