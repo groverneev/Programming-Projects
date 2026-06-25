@@ -2,8 +2,9 @@
 using namespace std;
 
 int main() {
-    ifstream fin("shell.in");
-    ofstream fout("shell.out");
+    string fileName = "";
+    ifstream fin(fileName + ".in");
+    ofstream fout(fileName + ".out");
 
 
 

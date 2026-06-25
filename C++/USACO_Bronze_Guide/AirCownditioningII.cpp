@@ -27,7 +27,7 @@ int main() {
         v.push_back(d);
     }
 
-    
+// need to continue this program
 
     return 0;
 }
