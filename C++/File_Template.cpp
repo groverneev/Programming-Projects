@@ -2,9 +2,8 @@
 using namespace std;
 
 int main() {
-    string fileName = "";
-    ifstream fin(fileName + ".in");
-    ofstream fout(fileName + ".out");
+	freopen("cow.in", "r", stdin);
+	freopen("cow.out", "w", stdout);
 
 
 
