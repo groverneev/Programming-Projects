@@ -9,11 +9,9 @@ int main() {
 
     int n;
     cin >> n;
-
-        // claude solution
+    // Claude solution
     map<string, vector<string>> adj;
-    set<string> cows = {"Bessie","Buttercup","Belinda","Beatrice",
-                        "Bella","Blue","Betsy","Sue"};
+    set<string> cows = {"Bessie", "Buttercup", "Belinda", "Beatrice", "Bella", "Blue", "Betsy", "Sue"};
 
     for (int i = 0; i < n; ++i) {
         string a, b, trash;
@@ -26,15 +24,17 @@ int main() {
 
     for (string start : cows) {
         if (used.count(start)) continue; // if already used, continue
-        if (adj[start].size() >= 2) continue;  // only start from an endpoint //(why >=???????? ((maybe because its possible to say x is adjacent to x)))
-
+        if (adj[start].size() >= 2) continue;  // only start from an endpoint // has to be > as well in case are redundant constraints
         string prev = "", cur = start;
         while (cur != "") {
             cout << cur << "\n";
             used.insert(cur);
             string next = "";
-            for (string nb : adj[cur])
-                if (nb != prev) next = nb;
+            for (string nb : adj[cur]) {
+                if (nb != prev) {
+                    next = nb;
+                }
+            }
             prev = cur;
             cur = next;
         }
