@@ -10,52 +10,35 @@ int main() {
     int n;
     cin >> n;
 
-    vector<vector<string>> vec {{"Beatrice"}, {"Bella"}, {"Belinda"}, {"Bessie"}, {"Betsy"}, {"Blue"}, {"Buttercup"}, {"Sue"}};
+        // claude solution
+    map<string, vector<string>> adj;
+    set<string> cows = {"Bessie","Buttercup","Belinda","Beatrice",
+                        "Bella","Blue","Betsy","Sue"};
 
-    for (int test = 0; test < n; ++test) {
-		string cow1;
-		string cow2;
-		string trash;
-		cin >> cow1 >> trash >> trash >> trash >> trash >> cow2;
+    for (int i = 0; i < n; ++i) {
+        string a, b, trash;
+        cin >> a >> trash >> trash >> trash >> trash >> b;
+        adj[a].push_back(b);
+        adj[b].push_back(a);
+    }
 
-        for (int i = 0; i < 8; ++i) {
-            if (vec[i][0] == cow1) {
-                vec[i].push_back(cow2);
-            } else if (vec[i][0] == cow2) {
-                vec[i].push_back(cow1);
-            }
+    set<string> used;
+
+    for (string start : cows) {
+        if (used.count(start)) continue; // if already used, continue
+        if (adj[start].size() >= 2) continue;  // only start from an endpoint //(why >=???????? ((maybe because its possible to say x is adjacent to x)))
+
+        string prev = "", cur = start;
+        while (cur != "") {
+            cout << cur << "\n";
+            used.insert(cur);
+            string next = "";
+            for (string nb : adj[cur])
+                if (nb != prev) next = nb;
+            prev = cur;
+            cur = next;
         }
     }
-
-    vector<string> output;
-
-    map<string, bool> cowMap = {{"Bessie", 0}, {"Buttercup", 0}, {"Belinda", 0}, {"Beatrice", 0}, {"Bella", 0}, {"Blue", 0}, {"Betsy", 0}, {"Sue", 0}};
-
-    for (int i = 0; i < 8; ++i) {
-        if (cowMap.at(vec[i][0]) == false) {
-            if ((int) vec[i].size() == 1) {
-                output.push_back(vec[i][0]);
-                cowMap[vec[i][0]] = true;
-            }
-            else if ((int) vec[i].size() == 2) {
-                output.push_back(vec[i][0]);
-                cowMap[vec[i][0]] = true;
-                if (cowMap.at(vec[i][1]) == false) {
-                    output.push_back(vec[i][1]);
-                    cowMap[vec[i][1]] = true;
-                }
-            }
-            else if ((int) vec[i].size() == 3) {
-
-            }
-        }
-    }
-
-    for (string s : output) {
-        cout << s << "\n";
-    }
-
-    // Program needs to be finished (not working yet)
 
     return 0;
 }
