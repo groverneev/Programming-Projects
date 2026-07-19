@@ -13,3 +13,8 @@
 *.exe
 .vscode/
 *.out
+
+# Python / uv
+.venv/
+__pycache__/
+*.pyc

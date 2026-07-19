@@ -1,0 +1,12 @@
+[project]
+name = "programs"
+version = "0.1.0"
+description = "Assorted practice and learning Python scripts."
+requires-python = ">=3.11,<3.14"
+# Add packages as you need them with `uv add <package>` (see below).
+dependencies = []
+
+# These are loose scripts run via `uv run python <script>`, not an installed
+# package, so uv manages the environment without trying to build the folder.
+[tool.uv]
+package = false
