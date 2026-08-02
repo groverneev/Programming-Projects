@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Done all by myself
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
@@ -23,7 +25,7 @@ int main() {
     set<int> mySet;
     int counter{};
 
-    while (startIdx < n && endIdx < n) { // check this condition
+    while (startIdx < n && endIdx < n) {
         if (start[startIdx] == end[endIdx]) {
             ++startIdx;
             ++endIdx;
