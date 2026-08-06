@@ -29,5 +29,3 @@ int main() {
 
     return 0;
 }
-
-// https://codeforces.com/contest/1398/problem/C
